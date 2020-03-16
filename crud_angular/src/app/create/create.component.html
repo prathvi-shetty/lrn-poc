@@ -1,0 +1,21 @@
+<form [formGroup]="createForm" (ngSubmit)="onSubmit()"> <!--formGroup is a directive-->
+  <label>
+  Name
+  <input type="text" formControlName="Name">
+  </label>
+  <small 
+        *ngIf="createForm.controls.Name.touched && createForm.controls.Name.errors?.required">
+          Please enter name
+      </small>
+ 
+  <label>
+  Place
+  <input type="text" formControlName="Place">
+  </label>
+  <small 
+  *ngIf="createForm.controls.Place.touched && createForm.controls.Place.errors?.required">
+    Please enter place
+</small>
+  
+  <div><button type="submit" [disabled]="!createForm.valid">Submit</button> </div>
+  </form>

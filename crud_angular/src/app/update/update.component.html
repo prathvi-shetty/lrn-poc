@@ -1,0 +1,30 @@
+<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+  <label>
+    Id
+  </label>
+  <input type="text" formControlName="id">
+  <small
+  *ngIf="updateForm.controls.id.touched && updateForm.controls.id.errors?.required">
+  Pleease enter the id
+</small>
+<label>
+  Name
+  <input type="text" formControlName="Name">
+  </label>
+  <small 
+        *ngIf="updateForm.controls.Name.touched && updateForm.controls.Name.errors?.required">
+          Please enter name
+      </small>
+ 
+  <label>
+  Place
+  <input type="text" formControlName="Place">
+  </label>
+  <small 
+  *ngIf="updateForm.controls.Place.touched && updateForm.controls.Place.errors?.required">
+    Please enter place
+</small>
+<div>
+  <button type="submit" [disabled]="!updateForm.valid">Update</button>
+</div>
+</form>

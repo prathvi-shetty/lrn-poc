@@ -1,0 +1,13 @@
+<form [formGroup]="deleteForm" (ngSubmit)="onSubmit()">
+  <label>
+    Id
+  </label>
+  <input type="text" formControlName="id">
+  <small
+  *ngIf="deleteForm.controls.id.touched && deleteForm.controls.id.errors?.required">
+  Pleease enter the id
+</small>
+<div>
+  <button type="submit" [disabled]="!deleteForm.valid">Delete</button>
+</div>
+</form>

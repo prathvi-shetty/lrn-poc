@@ -1,0 +1,24 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <label>
+  Email
+  <input type="email" formControlName="Email">
+  </label>
+  <small 
+        *ngIf="profileForm.controls.Email.touched && profileForm.controls.Email.errors?.required">
+          Please enter email address.!
+      </small>
+      <small 
+      *ngIf="profileForm.controls.Email.touched && profileForm.controls.Email.errors?.email">
+        Email address not well formed.!
+    </small>
+  <label>
+  Password
+  <input type="password" formControlName="Password">
+  </label>
+  <small 
+  *ngIf="profileForm.controls.Password.touched && profileForm.controls.Password.errors?.required">
+    Please enter password
+</small>
+  
+  <div><button type="submit" [disabled]="!profileForm.valid">Submit</button> </div>
+  </form>

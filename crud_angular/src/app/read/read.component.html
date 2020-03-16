@@ -1,0 +1,13 @@
+<form [formGroup]="readForm" (ngSubmit)="onSubmit()">
+  <label>
+    Id
+  </label>
+  <input type="text" formControlName="id">
+  <small
+  *ngIf="readForm.controls.id.touched && readForm.controls.id.errors?.required">
+  Please enter the id
+</small>
+<div>
+  <button type="submit" [disabled]="!readForm.valid">Delete</button>
+</div>
+</form>
