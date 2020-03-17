@@ -8,6 +8,7 @@
   Please enter the id
 </small>
 <div>
-  <button type="submit" [disabled]="!readForm.valid">Delete</button>
+  <button type="submit" [disabled]="!readForm.valid" (click)="onSubmit()">Read</button>
 </div>
 </form>
+<div *ngIf="dataValue"><h2>{{dataValue}}</h2></div>

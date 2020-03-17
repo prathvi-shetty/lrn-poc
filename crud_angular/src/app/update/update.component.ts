@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-update',
@@ -8,7 +9,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class UpdateComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http : Http) { }
+  dataValue =""
 
   ngOnInit() {
   }
@@ -19,7 +21,13 @@ export class UpdateComponent implements OnInit {
   }
   )
   onSubmit(){
-    console.log('Updated')
+    var id = this.updateForm.get('id').value;
+    var name = this.updateForm.get('Name').value;
+    var place = this.updateForm.get('Place').value;
+    return this.http.post("http://localhost:8080/student/update?name="+name+"&place="+place+"&id="+id,'POST',{}).
+    subscribe(
+      (data) => {this.dataValue= data["_body"]}
+    );
   }
 
 }

@@ -11,3 +11,6 @@
   <button type="submit" [disabled]="!deleteForm.valid">Delete</button>
 </div>
 </form>
+<div *ngIf="dataValue">
+  <h1>Deleted value</h1>
+  <h2>{{dataValue}}</h2></div>
